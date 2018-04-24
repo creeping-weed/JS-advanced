@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数的调用模式、作用域、预解析</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<script>
+    /*
+    1：函数的三种调用模式
+    函数调用模式
+    方法调用模式
+    上下文调用模式（借调模式）
+    */
+    // function fn(){
+    //     console.log(this);
+    // }
+    // fn();
+    // var obj = {
+    //     aa:fn
+    // };
+    // obj.aa();
+
+    // apply与call方法
+    // 第一个参数：；要指定的 this对象；
+    // 第二个参数：apply是一个数组[a,b,c]，call为 a,b,c
+
+    // fn.apply(obj)
+    //  数组转化为伪数组
+   //  var arr = [1,2,8,9,6,7];
+   //  var obj = {};
+   //  [].push.apply(obj,arr);
+   //  console.log(obj);
+   //  var obj1 = {};
+   //  for(var i = 0; i<arr.length;i++){
+   //      [].splice.call(obj1,0,0,arr[i])
+   //  }
+   // [].reverse.call(obj1);
+   //  console.log(obj1);
+   //  将伪数组转化为数组
+   //  var likeAarry = {0: 1, 1: 2, 2: 8, 3: 9, 4: 6, 5: 7, length: 6};
+    // var arr = [].slice.call(likeAarry);
+    // console.log(arr);
+    // var arr = [];
+    // [].push.apply(arr,likeAarry);
+    // console.log(arr);
+    // var arr = [].splice.call(likeAarry,0,likeAarry.length);
+    // console.log(arr);
+
+    // 求数组的最大值
+    // var arr = [1,2,8,9,6,7];
+    // var max  = Math.max.apply(Math,arr);
+    // console.log(max);
+
+    // function Person(name,age,sex){
+    //     this.name = name;
+    //     this.age = age;
+    //     this.sex = sex;
+    // }
+    // var p = new Person('小明',15,'男');
+    // console.log(Object.getPrototypeOf(p)==Person.prototype);
+    // Object.defineProperty(p,'color',{
+    //     value: 'red',
+    //     enumerable: false
+    // });
+    // console.log(Object.getOwnPropertyNames(p));
+    // console.log(Object.keys(p));
+    // console.log('color' in p);
+
+
+</script>
+
+</body>
+</html>

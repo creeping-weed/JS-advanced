@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>继承与函数的定义</title>
+</head>
+<body>
+<script>
+    <!--mix混合式继承-->
+    /*
+    var p1 = {
+        sex: 19
+    };
+    var p2  = {
+        name: '小米',
+        extend: function(obj){
+            for(var k in obj){
+                if(obj.hasOwnProperty(k)){
+                    this[k] = obj[k];
+                }
+            }
+        }
+    };
+    p2.extend(p1);
+    console.log(p2);
+    */
+
+    // 原型继承
+    /*
+    var p = {
+        age: 18,
+        sex: '女'
+    };
+    function Person(){
+
+    }
+    // Person.prototype = p;
+    // var p1 = new Person();
+    // console.log(p1);
+    Person.prototype.extend = function(obj){
+         for(var k in obj){
+             if(obj.hasOwnProperty(k)){
+                 this[k] = obj[k];
+             }
+         }
+    };
+    Person.prototype.extend(p);
+    var p1 = new Person();
+    console.log(p1);
+    */
+
+
+
+
+    // 安全的给内置对象添加方法
+    /*
+    function MyArray(){
+
+    }
+    MyArray.prototype = [];
+    MyArray.prototype.push = function(){
+        console.log('呵呵');
+    };
+    var arr1 = new MyArray();
+    arr1.push(1,2,3);
+    console.log(arr1);
+
+    var arr2 = new Array();
+    arr2.push(1,2,2);
+    console.log(arr2);
+    */
+
+
+    // 定义函数的3种方式
+    /*
+    function fn(){
+        console.log('呵呵');
+    }
+    var fn1 = function(){
+        console.log('呵呵');
+    };
+    var fn2 = new Function('a','b','console.log(a+b);');
+    fn();
+    fn1();
+    fn2(5,5);
+    // 函数的自调用
+    (function(){
+
+    })();
+    !function(){}();
+    +function(){}();
+    // eval函数（可以对字符串进行解析）
+    eval('console.log("呵呵")');
+    // 转化JSON对象
+    var json = '{"name": "小明", "age": "19", "sex": "男"}';
+    var obj = eval('('+json+')');
+    console.log(obj);
+    */
+
+
+    // JSON对象的相互转换
+    /*
+    console.log(JSON);
+    var json = '{"name": "小明", "age": "19", "sex": "男"}';
+    // JSON对象转js对象：JSON.parse()
+    obj = JSON.parse(json);
+    console.log(obj);
+    // js对象转JSON对象：JSON.stringify()
+    console.log(JSON.stringify(obj));
+    */
+</script>
+</body>
+</html>

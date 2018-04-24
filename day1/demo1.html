@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的克隆</title>
+</head>
+<body>
+
+<script>
+    // 面向对象思想
+    // (function(window){
+    //     function Hgx (selecter) {
+    //         return new Hgx.fn.init(selecter);
+    //     }
+    //     Hgx.fn = Hgx.prototype={
+    //         init:function(selecter){
+    //             var doms = document.querySelectorAll(selecter);
+    //             [].push.apply(this,doms);
+    //         },
+    //         say:function () {
+    //         console.log(this);
+    //         },
+    //         each: function (callback) {
+    //             for(var i=0;i<this.length;i++){
+    //                 callback.call(this[i],i,this[i]);
+    //             }
+    //         }
+    //     };
+    //     Hgx.fn.init.prototype = Hgx.fn;
+    //     window.$=Hgx;
+    // })(window);
+    // console.log($('li'));
+    // 严格模式
+    // 'use strict';
+
+    // 浅克隆
+    // var p1 = {
+    //     name: 'xm',
+    //     age: 18,
+    //     sex: '男',
+    //     car:{
+    //         type: '法拉利',
+    //         color: 'red'
+    //     }
+    // };
+    // var p2 = {};
+    // for(var k in p1){
+    //     p2[k] = p1[k];
+    // }
+    // console.log(p2);
+
+    // 深克隆
+/*
+    function cloneObj(obj){
+        var newObj = {};
+        for(var k in obj){
+            // if(typeof obj[k] === 'object'){
+            //     newObj[k] = cloneObj(obj[k]);
+            // }else{
+            //     newObj[k] = obj[k];
+            // }
+            newObj[k] = typeof obj[k] === 'object'?
+                cloneObj(obj[k]):
+                obj[k];
+        }
+        return newObj;
+    }
+    cloneObj(p1);
+    var p3 = cloneObj(p1);
+    p1.car.color = 'green';
+    console.log(p3);
+*/
+    // 创建对象的方式
+    // var p = {};
+
+    // 工厂函数创建对象
+    /*
+    function creatObj(name,age){
+        var p={};
+        p.name = name;
+        p.age = age;
+        p.say = function(){
+            console.log('你好！');
+        };
+        return p;
+    }
+    var p1 = creatObj('小明',19);
+    console.log(p1);
+    */
+    // 缺点：对象没有名字
+
+    // 构造函数创建对象
+    /*
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    // 方法放入原型(构造函数当中的prototype属性指向自己的原型)
+    Person.prototype.sayHi=function(){
+        console.log(this.name);
+    };
+    // 实例化对象
+    var p1 = new Person('小红',19);
+    console.log(p1);
+    p1.sayHi();
+    // 原型当中的constructor指回构造函数
+    console.log(Person.prototype.constructor === Person);
+    */
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.prototype的方法</title>
+</head>
+<body>
+<script>
+    console.log(Object.prototype);
+    // hasOwnProperty 判断对象自身是否具有这个属性
+    function Person(name,age,sex){
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+    Person.prototype.say = Person.prototype;
+    var p = new Person('小宁',15,'女');
+
+    // console.log(p.hasOwnProperty('age'));
+
+
+    // isPrototypeOf 测试一个对象是否存在于另一个对象的原型链上。
+    // console.log(Object.prototype.isPrototypeOf(p));
+
+    // propertyIsEnumerable 判断对象本身的一个成员是否可以枚举
+    // console.log(p.propertyIsEnumerable('name'));
+    // Object.defineProperty 定义一个对象属性的特性
+    // Object.defineProperty(p,'name',{
+    //     enumerable: false
+    // });
+    // console.log(p.propertyIsEnumerable('name'));
+
+
+</script>
+</body>
+</html>
